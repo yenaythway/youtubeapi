@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:karaoke/search/search_controller.dart';
-import 'package:karaoke/search/video_tile.dart';
+
+import 'search_controller.dart';
+import 'video_tile.dart';
 
 class Search extends StatelessWidget {
   final SearchBarController _searchController = Get.put(SearchBarController());
@@ -49,6 +50,7 @@ class SearchBarDelegate extends SliverPersistentHeaderDelegate {
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       decoration: BoxDecoration(color: Colors.black),
       child: TextField(
+        autofocus: true,
         // onChanged: _searchController.getQuery,
         onSubmitted: _searchController.getQuery,
         cursorColor: Colors.white,

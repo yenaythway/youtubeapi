@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'video.dart';
+import 'p_video.dart';
 import 'video_ui.dart';
 
-class VideoTile extends StatelessWidget {
-  Video video;
-  VideoTile({required this.video});
+class PVideoTile extends StatelessWidget {
+  PVideo video;
+  PVideoTile({required this.video});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => Get.to(VideoUi(id: video.videoId)),
       child: Column(
         children: [
+          Divider(
+            height: 1,
+          ),
           Image.network(
             video.songImageUrl,
             width: MediaQuery.of(context).size.width,
@@ -39,16 +42,19 @@ class VideoTile extends StatelessWidget {
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
-                    Row(
-                      children: [
-                        Text("Channel - ${video.channelName}",
-                            style: TextStyle(color: Colors.white)),
-                        // Text("664k views.",
-                        //     style: TextStyle(color: Colors.white)),
-                        // Text("5 month ago",
-                        //     style: TextStyle(color: Colors.white)),
-                      ],
+                    // Row(
+                    //   children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width - 20,
+                      child: Text("Channel - ${video.channelName}",
+                          style: TextStyle(color: Colors.white)),
                     ),
+                    // Text("664k views.",
+                    //     style: TextStyle(color: Colors.white)),
+                    // Text("5 month ago",
+                    //     style: TextStyle(color: Colors.white)),
+                    //   ],
+                    // ),
                   ],
                 )
               ],

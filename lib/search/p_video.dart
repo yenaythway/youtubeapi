@@ -1,22 +1,23 @@
 import 'package:flutter/foundation.dart';
 
-class Video {
+class PVideo {
   String songImageUrl;
   String channelImageUrl;
   String songTitle;
   String channelName;
   String videoId;
-  Video(
+  PVideo(
       {required this.songImageUrl,
       required this.channelImageUrl,
       required this.songTitle,
       required this.videoId,
       required this.channelName});
-  factory Video.fromJson(Map<String, dynamic> json) {
-    return Video(
-        songImageUrl: json["snippet"]["thumbnails"]["high"]["url"],
+  factory PVideo.fromJson(Map<String, dynamic> json) {
+    // print("#########################${json["snippet"]["title"]}");
+    return PVideo(
+        songImageUrl: json["snippet"]["thumbnails"]["maxres"]["url"],
         channelImageUrl: "",
-        videoId: json["id"]["videoId"],
+        videoId: json["id"],
         songTitle: json["snippet"]["title"],
         channelName: json["snippet"]["channelTitle"]);
   }
